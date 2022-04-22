@@ -9,7 +9,6 @@
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
 # It's strongly recommended that you check this file into your version control system.
-# fresh food db
 
 ActiveRecord::Schema.define(version: 20220419025012) do
 
@@ -20,14 +19,14 @@ ActiveRecord::Schema.define(version: 20220419025012) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "oder_details", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "oder_products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.decimal "price", precision: 10, scale: 2, null: false
     t.integer "quantity", null: false
     t.decimal "into_money", precision: 10, scale: 2, null: false
     t.bigint "order_id", null: false
     t.bigint "product_id", null: false
-    t.index ["order_id"], name: "index_oder_details_on_order_id"
-    t.index ["product_id"], name: "index_oder_details_on_product_id"
+    t.index ["order_id"], name: "index_oder_products_on_order_id"
+    t.index ["product_id"], name: "index_oder_products_on_product_id"
   end
 
   create_table "oders", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

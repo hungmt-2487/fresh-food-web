@@ -1,6 +1,6 @@
-class CreateOderDetails < ActiveRecord::Migration[5.1]
+class CreateOderProducts < ActiveRecord::Migration[5.1]
   def change
-    create_table :oder_details do |t|
+    create_table :oder_products do |t|
       t.decimal :price, precision: 10, scale: 2, null:false
       t.integer :quantity, null:false
       t.decimal :into_money, precision: 10, scale: 2, null:false
