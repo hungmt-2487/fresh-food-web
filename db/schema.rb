@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20220419025012) do
+ActiveRecord::Schema.define(version: 20220423080137) do
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name", null: false
@@ -19,17 +19,17 @@ ActiveRecord::Schema.define(version: 20220419025012) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "oder_details", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "order_products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.decimal "price", precision: 10, scale: 2, null: false
     t.integer "quantity", null: false
     t.decimal "into_money", precision: 10, scale: 2, null: false
     t.bigint "order_id", null: false
     t.bigint "product_id", null: false
-    t.index ["order_id"], name: "index_oder_details_on_order_id"
-    t.index ["product_id"], name: "index_oder_details_on_product_id"
+    t.index ["order_id"], name: "index_order_products_on_order_id"
+    t.index ["product_id"], name: "index_order_products_on_product_id"
   end
 
-  create_table "oders", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "orders", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "customer_name", null: false
     t.string "customer_phone", null: false
     t.string "customer_address", null: false
@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 20220419025012) do
     t.decimal "total_money", precision: 12, scale: 2, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["status"], name: "index_oders_on_status"
+    t.index ["status"], name: "index_orders_on_status"
   end
 
   create_table "products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

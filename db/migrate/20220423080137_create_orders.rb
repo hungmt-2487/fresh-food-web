@@ -1,6 +1,6 @@
-class CreateOders < ActiveRecord::Migration[5.1]
+class CreateOrders < ActiveRecord::Migration[5.1]
   def change
-    create_table :oders do |t|
+    create_table :orders do |t|
       t.string :customer_name, null:false
       t.string :customer_phone, null:false
       t.string :customer_address, null:false
