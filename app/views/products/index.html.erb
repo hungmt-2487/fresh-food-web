@@ -1,0 +1,27 @@
+
+
+<!-- Latest Product Section Begin -->
+<section class="latest-product spad">
+    <div class="container">
+        <div class="row">
+            <% @products.each do |product| %>
+                <div class="col-lg-4 col-md-6">
+                    <a href="#" class="latest-product__item">
+                        <div class="latest-product__item__pic">
+                            <img src="" alt="">
+                        </div>
+                        <div class="latest-product__item__text">
+                            <h6><%= product.name %></h6>
+                            <span>30.000</span>
+                        </div>
+                    </a>
+                </div>
+            <% end %>
+        </div>
+    </div>
+</section>
+
+<div class="pagination">
+  <%== pagy_bootstrap_nav(@pagy) %>
+</div>
+<!-- Latest Product Section End -->
