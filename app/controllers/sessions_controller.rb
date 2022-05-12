@@ -4,19 +4,13 @@ class SessionsController < Devise::SessionsController
   end
 
   def create 
-    # super   
-    super do |resource|
-      p "OK"
-      # BackgroundWorker.trigger(resource)
+    user = User.find_by username: params[:session][:username]
+    if user && user&.valid_password?(params[:session][:password])
+      redirect_to products_path
+    else
+      flash[:alert] = "Invalid email/password combination"
+      render :new
     end
-
-    # user = User.find_by username: params[:session][:username].downcase
-    # if user && user.authenticate(params[:session][:password])
-    #   #TODO save user infor into session
-    # else
-    #   flash[:danger] = "Invalid email/password combination"
-    #   render :new
-    # end
   end
 
   def destroy
